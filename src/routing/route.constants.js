@@ -1,0 +1,9 @@
+export const MAIN_PAGE = 'MAIN_PAGE';
+export const ITEMS_LIST = 'ITEMS_LIST';
+export const ITEM_PAGE = 'ITEM_PAGE';
+export const LOGIN_PAGE = 'LOGIN_PAGE';
+export const REGISTRATION_PAGE = 'REGISTRATION_PAGE';
+export const SWIPE_PAGE = 'SWIPE_PAGE';
+export const SEARCH_PAGE = 'SEARCH_PAGE';
+export const ADMIN_PAGE = 'ADMIN_PAGE';
+export const PROFILE_PAGE = 'PROFILE_PAGE';

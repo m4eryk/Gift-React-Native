@@ -1,11 +1,55 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet } from 'react-native';
+import * as Font from 'expo-font';
+import {useAsyncEffect} from 'use-async-effect'
+import { Spinner } from '@shoutem/ui'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-export default function App() {
+import store from './src/state/store';
+import Header from './src/components/header.component';
+import RubikFont from './src/fonts/rubik.font';
+import RobotoFont from './src/fonts/roboto.font';
+import Category from "./src/components/category.component";
+import CategoryItem from "./src/components/category-item.component";
+import FooterTabs from "./src/components/footer.component";
+import {Button, FooterTab, Icon, Content, Container} from "native-base";
+import Route from './src/routing/route'
+
+export default function App(props) {
+  const [state, setState] = useState({
+    fontsAreLoaded: false,
+    isDrawerOpen: true,
+  });
+
+  useAsyncEffect(async () => {
+    await Font.loadAsync({
+      ...RubikFont,
+      ...RobotoFont,
+    });
+    setState({
+      ...state,
+      fontsAreLoaded: true
+    })
+  }, []);
+  //console.log(props)
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <>
+      {state.fontsAreLoaded
+        ? (
+          <Provider store={store}>
+            <Container style={{height: '100%'}}>
+              <Route />
+            </Container>
+          </Provider>
+        )
+        : <Spinner
+            color="#00BEF7"
+            size="large"
+          />
+      }
+    </>
   );
 }
 
@@ -16,4 +60,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  animatedBox: {
+    flex: 1,
+    backgroundColor: "#38C8EC",
+  },
 });
+
