@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StyleSheet, View } from "react-native";
+import React from 'react';
+import { View } from "react-native";
 import {
   ImageBackground,
   Title,
@@ -11,31 +11,46 @@ import {
   Screen,
 } from '@shoutem/ui'
 
-import fakeCategory from '../fake/category.fake';
 import { ITEMS_LIST } from "../routing/route.constants";
+import useAsyncEffect from "use-async-effect";
+import { connect } from "react-redux";
+import { getCategoriesAction } from "../state/actions/categoryActions";
+import { getCategoriesSelector } from "../state/selectors/categorySelector";
+import {setSearchParamsAction} from "../state/actions/giftActions";
 
-export default function Category(props) {
-  const [state, setState] = useState({
-    restaurants: fakeCategory,
-  });
+function Category(props) {
+  useAsyncEffect(async () => {
+    const focusListener = props.navigation.addListener('didFocus', async () => {
+      await props.getCategoriesAction();
+    });
+    await props.getCategoriesAction();
 
-  const { restaurants } = state;
+    return () => {
+      focusListener.remove();
+    };
+  }, []);
 
-  const renderRow = restaurant => {
-    if (!restaurant) {
+  const navigateToGiftList = (id) = async () => {
+    await props.setSearchParamsAction({category: id});
+    props.navigation.navigate(ITEMS_LIST);
+  };
+
+  const renderRow = category => {
+    if (!category) {
       return null;
     }
 
     return (
-      <TouchableOpacity onPress={() => props.navigation.navigate(ITEMS_LIST)}>
+      <TouchableOpacity
+        onPress={navigateToGiftList}>
         <View>
           <ImageBackground
             styleName="large-banner"
-            source={{ uri: restaurant.image.url }}
+            source={{ uri: category.image }}
           >
             <Tile>
-              <Title styleName="md-gutter-bottom">{ restaurant.name }</Title>
-              <Subtitle styleName="sm-gutter-horizontal">{ restaurant.address }</Subtitle>
+              <Title styleName="md-gutter-bottom">{ category.title }</Title>
+              <Subtitle styleName="sm-gutter-horizontal">{ category.text }</Subtitle>
             </Tile>
           </ImageBackground>
           <Divider styleName="line" />
@@ -47,9 +62,20 @@ export default function Category(props) {
   return (
     <Screen>
       <ListView
-        data={restaurants}
+        data={props.categories}
         renderRow={renderRow}
       />
     </Screen>
   )
 }
+
+const mapStateToProps = state => ({
+  categories: getCategoriesSelector(state),
+});
+
+const actions = {
+  getCategoriesAction,
+  setSearchParamsAction,
+};
+
+export default connect(mapStateToProps, actions)(Category)

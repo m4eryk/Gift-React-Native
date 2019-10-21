@@ -6,12 +6,12 @@ import {Animated, Easing} from 'react-native'
 
 import Category from "../components/category.component";
 import ItemPage from '../components/item.component';
-import CategoryItem from '../components/category-item.component';
+import CategoryItem from '../components/gifts-list.component';
 import Header from '../components/header.component';
 import FooterTabs from "../components/footer.component";
 import Login from "../components/login.component";
 import Registration from '../components/registration.component';
-import {ITEM_PAGE, LOGIN_PAGE} from "./route.constants";
+import {ITEM_PAGE, LOGIN_PAGE, MAIN_PAGE, REGISTRATION_PAGE} from "./route.constants";
 import Swiper from "../components/swiper.component";
 import Search from "../components/search.component";
 import Admin from "../components/admin.component";
@@ -19,7 +19,7 @@ import Profile from "../components/profile.component";
 
 const DashboardTabNavigator = createBottomTabNavigator({
     ITEMS_LIST: {
-      screen: CategoryItem
+      screen: CategoryItem,
     },
     MAIN_PAGE: {
       screen: Category
@@ -47,15 +47,17 @@ const DashboardTabNavigator = createBottomTabNavigator({
     },
   },
   {
-    initialRouteName: LOGIN_PAGE,
+    initialRouteName: MAIN_PAGE,
+    unmountInactiveRoutes: true,
     tabBarComponent: props => <FooterTabs {...props} />
   }
 );
 
-const AppNavigator = createStackNavigator({
+const appNavigator = createStackNavigator({
     DashboardTabNavigator: DashboardTabNavigator,
   },
   {
+    unmountInactiveRoutes: true,
     defaultNavigationOptions: {
       header: (props) => <Header {...props} />,
     },
@@ -69,4 +71,4 @@ const AppNavigator = createStackNavigator({
   }
 );
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(appNavigator);

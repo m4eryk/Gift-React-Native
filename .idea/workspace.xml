@@ -2,45 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="816f4c6e-7f11-464c-8925-bd2976e214b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/animation/balloons.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/admin.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/category-item.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/category.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/create-gift.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/footer.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/header.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/item.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/login.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/management.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/profile.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/protected.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/registration.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/search.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/swiper.component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/configs/api.configs.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/user-role.contants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fake/category.fake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fake/item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fake/items.fake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fake/swiper.fake.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/roboto.font.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fonts/rubik.font.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routing/route.constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routing/route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/api/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/api/userApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/actions/userActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/reducers/userReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/rootReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/selectors/userSelector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/types/userTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/animation/dino-dance.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/gift.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/category-management.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/create-category.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/gift-management.component.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constants/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/categoryApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/giftApi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/actions/categoryActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/actions/giftActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/reducers/categoryReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/reducers/giftReducer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/selectors/categorySelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/selectors/giftSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/types/categoryTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/types/giftTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/text.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/toast.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/splash.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/admin.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/admin.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/category-item.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gifts-list.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/category.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/create-gift.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/create-gift.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/footer.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/item.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/item.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/management.component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/registration.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/registration.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/search.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/search.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/swiper.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/swiper.component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configs/api.configs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/configs/api.configs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fake/category.fake.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/fake/category.fake.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fake/items.fake.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/fake/items.fake.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fake/swiper.fake.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/fake/swiper.fake.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routing/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routing/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/api/userApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api/userApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/reducers/userReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/reducers/userReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/rootReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,12 +63,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/animation" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\Programms\IntelliJ IDEA 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Programming\sarrochka\Gifts\assets\animation" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programming\sarrochka\Gifts\assets" />
       <recent name="D:\Programming\sarrochka\Gifts\assets\animation" />
       <recent name="D:\Programming\sarrochka\Gifts\src" />
       <recent name="D:\Programming\sarrochka\Gifts" />
@@ -90,7 +101,10 @@
       <option name="presentableId" value="Default" />
       <updated>1571333230660</updated>
       <workItem from="1571333231898" duration="23426000" />
-      <workItem from="1571419756511" duration="28101000" />
+      <workItem from="1571419756511" duration="35707000" />
+      <workItem from="1571485161996" duration="17737000" />
+      <workItem from="1571567288630" duration="32831000" />
+      <workItem from="1571676138535" duration="24457000" />
     </task>
     <task id="LOCAL-00001" summary="initial project">
       <created>1571333286320</created>
@@ -99,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571333286320</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial project">
+      <created>1571449612439</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571449612439</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

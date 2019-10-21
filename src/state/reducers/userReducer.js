@@ -1,5 +1,5 @@
 import { USER_ROLE } from "../../constants/user-role.contants";
-import {SET_USER} from "../types/userTypes";
+import { SET_USER } from "../types/userTypes";
 
 const initialState = {
   user: {

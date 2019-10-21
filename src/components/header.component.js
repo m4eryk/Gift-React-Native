@@ -10,14 +10,13 @@ export default function Header(props) {
   return (
     <>
       <ImageBackground
-        source={{uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-3.png'}}
-        style={{ height: 50 }}
+        style={{ height: 25, backgroundColor: '#F0AD4E' }}
       >
-        <NavigationBar
-          styleName="clear"
-          centerComponent={<Title>GIFTS</Title>}
-        >
-        </NavigationBar>
+        {/*<NavigationBar*/}
+        {/*  styleName="clear"*/}
+        {/*  centerComponent={<Title>GIFTS</Title>}*/}
+        {/*>*/}
+        {/*</NavigationBar>*/}
       </ImageBackground>
     </>
   )

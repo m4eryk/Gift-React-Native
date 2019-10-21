@@ -3,23 +3,25 @@ import { StyleSheet } from 'react-native';
 import * as Font from 'expo-font';
 import {useAsyncEffect} from 'use-async-effect'
 import { Spinner } from '@shoutem/ui'
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import {connect, Provider} from 'react-redux';
+import { Root } from "native-base";
 
 import store from './src/state/store';
 import Header from './src/components/header.component';
 import RubikFont from './src/fonts/rubik.font';
 import RobotoFont from './src/fonts/roboto.font';
 import Category from "./src/components/category.component";
-import CategoryItem from "./src/components/category-item.component";
+import CategoryItem from "./src/components/gifts-list.component";
 import FooterTabs from "./src/components/footer.component";
 import {Button, FooterTab, Icon, Content, Container} from "native-base";
 import Route from './src/routing/route'
+import {SplashScreen} from "expo";
+import {getUserAction, loginUserAction} from "./src/state/actions/userActions";
 
-export default function App(props) {
+function App(props) {
   const [state, setState] = useState({
     fontsAreLoaded: false,
-    isDrawerOpen: true,
+    isAppLoaded: false,
   });
 
   useAsyncEffect(async () => {
@@ -27,20 +29,22 @@ export default function App(props) {
       ...RubikFont,
       ...RobotoFont,
     });
+    await store.dispatch(getUserAction());
     setState({
       ...state,
-      fontsAreLoaded: true
+      isAppLoaded: true
     })
   }, []);
-  //console.log(props)
 
   return (
     <>
-      {state.fontsAreLoaded
+      {state.isAppLoaded
         ? (
           <Provider store={store}>
             <Container style={{height: '100%'}}>
-              <Route />
+              <Root>
+                <Route />
+              </Root>
             </Container>
           </Provider>
         )
@@ -66,3 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
+export default App

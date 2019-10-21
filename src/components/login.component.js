@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Container,
   Content,
@@ -6,29 +6,51 @@ import {
   Item,
   Button,
   Text,
-  Input,
+  Input, Toast,
 } from 'native-base'
-import {connect} from "react-redux";
-import {loginUserAction} from "../state/actions/userActions";
+import { connect } from "react-redux";
 import LottieView from "lottie-react-native";
-import {StyleSheet, View} from "react-native";
+import { StyleSheet, View } from "react-native";
+
+import { MAIN_PAGE, REGISTRATION_PAGE } from "../routing/route.constants";
+import toastStyles from "../styles/toast";
+import { loginUserAction } from "../state/actions/userActions";
 
 function Login(props) {
   const [state, setState] = useState({
-    userName: '',
+    loginName: '',
     password: '',
+    isSpinnerShow: false,
   });
 
   useEffect(() => {
-    console.log(2)
-    this.animation.play();
+    const playAnimation = props.navigation.addListener('didFocus', () => {
+      //this.dino.play();
+      this.loginBgAnimation.play();
+    });
+    this.loginBgAnimation.play();
+
     return () => {
-      this.animation.reset()
+      this.loginBgAnimation.reset();
+      playAnimation.remove();
+      setState({isSpinnerShow: false});
     }
-  });
+  }, []);
 
   const submitForm = async () => {
-    await props.loginUserAction(state);
+    try {
+      await props.loginUserAction(state);
+      props.navigation.navigate(MAIN_PAGE);
+    } catch (error) {
+      const errorMsg = error.response.data.errors[0].msg;
+      Toast.show({
+        text: errorMsg,
+        buttonText: 'Okay',
+        style: toastStyles.error,
+        position: "top",
+        duration: 4000,
+      });
+    }
   };
 
   const onValueChange = name => event => {
@@ -41,8 +63,8 @@ function Login(props) {
   return (
     <Container style={{height: '100%'}}>
       <LottieView
-        ref={animation => {
-          this.animation = animation;
+        ref={animation  => {
+          this.loginBgAnimation = animation;
         }}
         style={{position: 'absolute', flex: 1}}
         source={require('../../assets/animation/balloons')}
@@ -50,13 +72,35 @@ function Login(props) {
         loop
       />
 
+      {state.isSpinnerShow
+      ? (
+          <View
+            style={{height: '100%', backgroundColor: "rgba(0,0,0,.7)", width: '100%', position: 'absolute', zIndex: 2, display: 'flex'}}
+          >
+            <LottieView
+              ref={animation  => {
+                this.dino = animation;
+              }}
+              style={{}}
+              source={require('../../assets/animation/dino-dance')}
+              resizeMode="cover"
+              loop
+            />
+            <Text style={{textAlign: 'center'}}>Waiting...</Text>
+          </View>
+        )
+      : null}
+
       <Content>
         <Form style={styles.container}>
           <View style={styles.formContainer}>
+
+            <Text style={styles.title}>Log in</Text>
+
             <Item>
               <Input
-                value={state.userName}
-                onChange={onValueChange('userName')}
+                value={state.loginName}
+                onChange={onValueChange('loginName')}
                 placeholder="Username"
               />
             </Item>
@@ -80,14 +124,19 @@ function Login(props) {
               <Text>Log in</Text>
             </Button>
           </View>
+          <View>
+            <Button
+              block
+              transparent
+              onPress={() => props.navigation.navigate(REGISTRATION_PAGE)}
+            >
+              <Text>Registration</Text>
+            </Button>
+          </View>
         </Form>
       </Content>
     </Container>
   );
-};
-
-const actions = {
-  loginUserAction,
 };
 
 const styles = StyleSheet.create({
@@ -108,7 +157,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     marginTop: 30,
-    marginBottom: 30
+    marginBottom: 10
   },
   button: {
     marginTop: 30,
@@ -116,7 +165,16 @@ const styles = StyleSheet.create({
   input: {
     marginTop: 10,
     marginBottom: 10
+  },
+  title: {
+    marginBottom: 10,
+    fontSize: 23,
+    textAlign: 'center'
   }
 });
+
+const actions = {
+  loginUserAction,
+};
 
 export default connect(null, actions)(Login)
