@@ -15,6 +15,10 @@ export default class GiftApi extends Api {
     return this.get(`${this.GIFT_URL}${id}`);
   }
 
+  async getRandomGift() {
+    return this.get(`${this.GIFT_URL}random`);
+  }
+
   async getGifts(params) {
     return this.get(`${this.GIFT_URL}`, {params: params});
   }

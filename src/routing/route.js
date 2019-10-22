@@ -16,6 +16,7 @@ import Swiper from "../components/swiper.component";
 import Search from "../components/search.component";
 import Admin from "../components/admin.component";
 import Profile from "../components/profile.component";
+import LikeList from '../components/like-list.component';
 
 const DashboardTabNavigator = createBottomTabNavigator({
     ITEMS_LIST: {
@@ -45,6 +46,9 @@ const DashboardTabNavigator = createBottomTabNavigator({
     PROFILE_PAGE: {
       screen: Profile
     },
+    LIKE_PAGE: {
+      screen: LikeList
+    }
   },
   {
     initialRouteName: MAIN_PAGE,

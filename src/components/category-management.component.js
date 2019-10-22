@@ -10,7 +10,12 @@ import {
   Body,
   Right,
   Button,
-  Icon, Toast, Item, Input, Textarea, Form
+  Icon,
+  Toast,
+  Item,
+  Input,
+  Textarea,
+  Form
 } from 'native-base'
 import { withNavigation } from "react-navigation";
 import { TouchableOpacity, View } from "react-native";
@@ -19,7 +24,6 @@ import Dialog from "react-native-dialog";
 import toastStyles from "../styles/toast";
 import useAsyncEffect from "use-async-effect";
 
-import { ITEM_PAGE } from "../routing/route.constants";
 import { getCategoriesSelector } from "../state/selectors/categorySelector";
 import {
   deleteCategoryAction,
@@ -163,8 +167,16 @@ function CategoryManagement(props) {
                   </Left>
                   <Body>
                     <Text
-                      numberOfLines={2}
-                    >{category.title}</Text>
+                      numberOfLines={1}
+                    >
+                      {category.title}
+                    </Text>
+                    <Text
+                      numberOfLines={1}
+                      note
+                    >
+                      {category.text}
+                    </Text>
                   </Body>
                   <Right
                     style={{display: "flex", flexDirection: "row", padding: 0}}
@@ -185,15 +197,6 @@ function CategoryManagement(props) {
                     >
                       <Icon
                         name="create"
-                      />
-                    </Button>
-                    <Button
-                      onPress={() => props.navigation.navigate(ITEM_PAGE)}
-                      transparent
-                      block
-                    >
-                      <Icon
-                        name="information-circle-outline"
                       />
                     </Button>
                   </Right>

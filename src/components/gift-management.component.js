@@ -18,7 +18,12 @@ import useAsyncEffect from "use-async-effect";
 import { connect } from "react-redux";
 
 import { ITEM_PAGE } from "../routing/route.constants";
-import {deleteGiftAction, getGiftsAction, updateGiftAction} from "../state/actions/giftActions";
+import {
+  deleteGiftAction,
+  getGiftsAction,
+  setSearchGiftParamsAction,
+  updateGiftAction
+} from "../state/actions/giftActions";
 import {getGiftsSelector, getSearchParamsSelector} from "../state/selectors/giftSelector";
 import toastStyles from "../styles/toast";
 import Dialog from "react-native-dialog";
@@ -48,7 +53,8 @@ function GiftManagement(props) {
       title: '',
       image: '',
       age: '',
-      text: ''
+      text: '',
+      link: '',
     },
   });
 
@@ -118,6 +124,11 @@ function GiftManagement(props) {
     }
   };
 
+  const navigateToGift = id => async () => {
+    await props.setSearchGiftParamsAction({id});
+    props.navigation.navigate(ITEM_PAGE);
+  };
+
   return (
     <>
       <View>
@@ -141,6 +152,14 @@ function GiftManagement(props) {
                 value={state.currentGift.image}
                 onChange={onValueChange('image')}
                 placeholder="Image"
+              />
+            </Item>
+
+            <Item style={{marginRight: 20}}>
+              <Input
+                value={state.link}
+                onChange={onValueChange('link')}
+                placeholder="Link on gift"
               />
             </Item>
 
@@ -199,9 +218,9 @@ function GiftManagement(props) {
                 onValueChange={onPickerChange('forWhy')}
               >
                 <Picker.Item label="" value="" />
-                <Picker.Item label="Girl" value="key0" />
-                <Picker.Item label="Family" value="key1" />
-                <Picker.Item label="Child" value="key2" />
+                <Picker.Item label="Girl" value="girl" />
+                <Picker.Item label="Family" value="family" />
+                <Picker.Item label="Child" value="child" />
               </Picker>
             </Item>
 
@@ -218,9 +237,9 @@ function GiftManagement(props) {
                 onValueChange={onPickerChange('hobby')}
               >
                 <Picker.Item label="" value="" />
-                <Picker.Item label="Computer" value="key0" />
-                <Picker.Item label="Films" value="key1" />
-                <Picker.Item label="Music" value="key2" />
+                <Picker.Item label="Computer" value="computer" />
+                <Picker.Item label="Films" value="films" />
+                <Picker.Item label="Music" value="music" />
               </Picker>
             </Item>
           </Form>
@@ -246,7 +265,8 @@ function GiftManagement(props) {
                     <Thumbnail square source={{ uri: gift.image }} />
                   </Left>
                   <Body>
-                    <Text numberOfLines={2}>{gift.title}</Text>
+                    <Text numberOfLines={1}>{gift.title}</Text>
+                    <Text note numberOfLines={1}>{gift.text}</Text>
                   </Body>
                   <Right style={{display: "flex", flexDirection: "row"}}>
 
@@ -269,7 +289,7 @@ function GiftManagement(props) {
                     </Button>
 
                     <Button
-                      onPress={() => props.navigation.navigate(ITEM_PAGE, gift)}
+                      onPress={navigateToGift(gift._id)}
                       transparent
                       block
                       style={{padding: 0}}
@@ -303,6 +323,7 @@ const actions = {
   getGiftsAction,
   updateGiftAction,
   getCategoriesAction,
+  setSearchGiftParamsAction,
   deleteGiftAction,
 };
 

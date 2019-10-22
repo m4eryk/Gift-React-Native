@@ -16,7 +16,7 @@ import useAsyncEffect from "use-async-effect";
 import { connect } from "react-redux";
 import { getCategoriesAction } from "../state/actions/categoryActions";
 import { getCategoriesSelector } from "../state/selectors/categorySelector";
-import {setSearchParamsAction} from "../state/actions/giftActions";
+import { setSearchParamsAction } from "../state/actions/giftActions";
 
 function Category(props) {
   useAsyncEffect(async () => {
@@ -30,7 +30,7 @@ function Category(props) {
     };
   }, []);
 
-  const navigateToGiftList = (id) = async () => {
+  const navigateToGiftList = id => async () => {
     await props.setSearchParamsAction({category: id});
     props.navigation.navigate(ITEMS_LIST);
   };
@@ -42,7 +42,7 @@ function Category(props) {
 
     return (
       <TouchableOpacity
-        onPress={navigateToGiftList}>
+        onPress={navigateToGiftList(category._id)}>
         <View>
           <ImageBackground
             styleName="large-banner"

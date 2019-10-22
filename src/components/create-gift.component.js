@@ -27,7 +27,8 @@ function CreateGift(props) {
     title: '',
     image: '',
     age: '',
-    text: ''
+    text: '',
+    link: ''
   });
 
   useAsyncEffect(async () => {
@@ -90,6 +91,14 @@ function CreateGift(props) {
 
           <Item style={{marginRight: 20}}>
             <Input
+              value={state.link}
+              onChange={onValueChange('link')}
+              placeholder="Link on gift"
+            />
+          </Item>
+
+          <Item style={{marginRight: 20}}>
+            <Input
               last
               value={state.age}
               onChange={onValueChange('age')}
@@ -143,9 +152,9 @@ function CreateGift(props) {
               onValueChange={onPickerChange('forWhy')}
             >
               <Picker.Item label="" value="" />
-              <Picker.Item label="Girl" value="key0" />
-              <Picker.Item label="Family" value="key1" />
-              <Picker.Item label="Child" value="key2" />
+              <Picker.Item label="Girl" value="girl" />
+              <Picker.Item label="Family" value="family" />
+              <Picker.Item label="Child" value="child" />
             </Picker>
           </Item>
 
@@ -162,9 +171,9 @@ function CreateGift(props) {
               onValueChange={onPickerChange('hobby')}
             >
               <Picker.Item label="" value="" />
-              <Picker.Item label="Computer" value="key0" />
-              <Picker.Item label="Films" value="key1" />
-              <Picker.Item label="Music" value="key2" />
+              <Picker.Item label="Computer" value="computer" />
+              <Picker.Item label="Films" value="films" />
+              <Picker.Item label="Music" value="music" />
             </Picker>
           </Item>
 

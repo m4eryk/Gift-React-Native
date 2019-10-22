@@ -1,7 +1,12 @@
-import {SET_GIFT, SET_GIFTS, SET_SEARCH_GIFT_PARAMS, SET_SEARCH_PARAMS} from "../types/giftTypes";
+import {SET_GIFT, SET_GIFTS, SET_RANDOM_GIFT, SET_SEARCH_GIFT_PARAMS, SET_SEARCH_PARAMS} from "../types/giftTypes";
 
 const initialState = {
-  gift: null,
+  gift: {
+    title: '',
+    image: '',
+    text: ''
+  },
+  randomGift: null,
   gifts: [],
   searchParams: null,
   giftSearchParams: null,
@@ -25,6 +30,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         searchParams: action.payload
+      };
+
+    case SET_RANDOM_GIFT:
+      return {
+        ...state,
+        randomGift: action.payload
       };
 
     case SET_SEARCH_GIFT_PARAMS:

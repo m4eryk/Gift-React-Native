@@ -8,7 +8,7 @@ import {
 import {
   ADMIN_PAGE,
   ITEM_PAGE,
-  ITEMS_LIST,
+  ITEMS_LIST, LIKE_PAGE,
   LOGIN_PAGE,
   MAIN_PAGE,
   PROFILE_PAGE, SEARCH_PAGE,
@@ -36,18 +36,6 @@ function FooterTabs(props) {
             name="home" />
         </Button>
 
-        {/*<Button onPress={() => props.navigation.navigate(ITEM_PAGE)}>*/}
-        {/*  <Icon*/}
-        {/*    style={styles.icon}*/}
-        {/*    name="camera" />*/}
-        {/*</Button>*/}
-
-        {/*<Button onPress={() => props.navigation.navigate(ITEMS_LIST)}>*/}
-        {/*  <Icon*/}
-        {/*    style={styles.icon}*/}
-        {/*    name="navigate" />*/}
-        {/*</Button>*/}
-
         <Button onPress={() => props.navigation.navigate(SEARCH_PAGE)}>
           <Icon
             style={styles.icon}
@@ -69,7 +57,7 @@ function FooterTabs(props) {
           currentRole={role}
           role={[ADMIN, USER]}
         >
-          <Button onPress={() => props.navigation.navigate(PROFILE_PAGE)}>
+          <Button onPress={() => props.navigation.navigate(LIKE_PAGE)}>
             <Icon
               style={styles.icon}
               name="heart" />
@@ -94,7 +82,7 @@ function FooterTabs(props) {
           <Button onPress={() => props.navigation.navigate(ADMIN_PAGE)}>
             <Icon
               style={styles.icon}
-              name="person" />
+              name="hammer" />
           </Button>
         </ProtectedComponent>
 

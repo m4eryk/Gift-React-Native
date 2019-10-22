@@ -1,5 +1,5 @@
 import GiftApi from "../../services/api/giftApi";
-import {SET_GIFT, SET_GIFTS, SET_SEARCH_GIFT_PARAMS, SET_SEARCH_PARAMS} from "../types/giftTypes";
+import {SET_GIFT, SET_GIFTS, SET_RANDOM_GIFT, SET_SEARCH_GIFT_PARAMS, SET_SEARCH_PARAMS} from "../types/giftTypes";
 import {getSearchGiftParamsSelector, getSearchParamsSelector} from "../selectors/giftSelector";
 
 export const setGift = payload => ({
@@ -22,6 +22,11 @@ export const setSearchGiftParams = payload => ({
   payload: payload,
 });
 
+export const setRandomGift = payload => ({
+  type: SET_RANDOM_GIFT,
+  payload: payload,
+});
+
 export const createGiftAction = data => async () => {
   try {
     const giftResponse = await new GiftApi().createGift(data);
@@ -38,9 +43,18 @@ export const setSearchGiftParamsAction = params => async dispatch => {
 export const getGiftAction = () => async (dispatch, getState) => {
   try {
     const searchParams = getSearchGiftParamsSelector(getState());
-    const responseData = await new GiftApi().getGift(searchParams);
+    const responseData = await new GiftApi().getGift(searchParams.id);
     dispatch(setGift(responseData.data));
     dispatch(setSearchGiftParams(null));
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getRandomGiftAction = () => async (dispatch, getState) => {
+  try {
+    const responseData = await new GiftApi().getRandomGift();
+    dispatch(setRandomGift(responseData.data));
   } catch (err) {
     throw err;
   }
@@ -78,3 +92,5 @@ export const updateGiftAction = (id, data) => async dispatch => {
     throw error;
   }
 };
+
+

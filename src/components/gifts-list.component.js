@@ -12,7 +12,7 @@ import { ITEM_PAGE } from "../routing/route.constants";
 import useAsyncEffect from "use-async-effect";
 import { connect } from "react-redux";
 import {getGiftsSelector, getSearchParamsSelector} from "../state/selectors/giftSelector";
-import { getGiftsAction } from "../state/actions/giftActions";
+import {getGiftsAction, setSearchGiftParamsAction} from "../state/actions/giftActions";
 
 function CategoryItems(props) {
   const { searchParams } = props;
@@ -28,8 +28,9 @@ function CategoryItems(props) {
     };
   }, []);
 
-  const navigateToGift = id => () => {
-
+  const navigateToGift = id => async () => {
+    await props.setSearchGiftParamsAction({id});
+    props.navigation.navigate(ITEM_PAGE);
   };
 
   return (
@@ -45,7 +46,7 @@ function CategoryItems(props) {
             />
             <View style={styles.container} styleName="vertical">
               <Subtitle numberOfLines={1} style={styles.subtitle}>{gift.title}</Subtitle>
-              <Caption>{gift.caption}</Caption>
+              <Caption  numberOfLines={2}>{gift.text}</Caption>
             </View>
           </Row>
         </TouchableOpacity>
@@ -70,6 +71,7 @@ const mapStateToProps = state => ({
 });
 
 const actions = {
+  setSearchGiftParamsAction,
   getGiftsAction,
 };
 

@@ -63,11 +63,6 @@ function Search(props) {
     <Container>
       <Content>
         <Form>
-
-          {/*<Item style={{marginRight: 20}}>*/}
-          {/*  <Input placeholder="Title"/>*/}
-          {/*</Item>*/}
-
           <Item style={{marginRight: 20}}>
             <Input
               last
@@ -112,9 +107,9 @@ function Search(props) {
               onValueChange={onPickerChange('forWhy')}
             >
               <Picker.Item label="" value="" />
-              <Picker.Item label="Girl" value="key0" />
-              <Picker.Item label="Family" value="key1" />
-              <Picker.Item label="Child" value="key2" />
+              <Picker.Item label="Girl" value="girl" />
+              <Picker.Item label="Family" value="family" />
+              <Picker.Item label="Child" value="child" />
             </Picker>
           </Item>
 
@@ -131,9 +126,9 @@ function Search(props) {
               onValueChange={onPickerChange('hobby')}
             >
               <Picker.Item label="" value="" />
-              <Picker.Item label="Computer" value="key0" />
-              <Picker.Item label="Films" value="key1" />
-              <Picker.Item label="Music" value="key2" />
+              <Picker.Item label="Computer" value="computer" />
+              <Picker.Item label="Films" value="films" />
+              <Picker.Item label="Music" value="music" />
             </Picker>
           </Item>
 
